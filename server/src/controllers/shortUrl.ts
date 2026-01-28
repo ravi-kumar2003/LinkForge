@@ -25,7 +25,7 @@ export const getAllUrl = async (
   res: express.Response,
 ) => {
   try {
-    const shortUrls = await urlModel.find().sort({createdAt:-1});
+    const shortUrls = await urlModel.find().sort({ createdAt: -1 });
     if (shortUrls.length === 0) {
       res.status(404).send({ message: "Short Urls not found !!" });
     } else {
@@ -41,7 +41,7 @@ export const getUrl = async (req: express.Request, res: express.Response) => {
     if (!shortUrl) {
       res.status(404).send({ message: "Full Url not found" });
     } else {
-      shortUrl.clicks+=1;
+      shortUrl.clicks += 1;
       await shortUrl.save();
       return res.redirect(`${shortUrl.fullUrl}`);
     }
@@ -53,11 +53,11 @@ export const deleteUrl = async (
   req: express.Request,
   res: express.Response,
 ) => {
-     try {
+  try {
     const shortUrl = await urlModel.findByIdAndDelete({ _id: req.params.id });
     if (shortUrl) {
       res.status(200).send({ message: "Requested Url successfully deleted" });
-    } 
+    }
   } catch (error) {
     res.status(500).send({ message: "Something went wrong!!" });
   }
