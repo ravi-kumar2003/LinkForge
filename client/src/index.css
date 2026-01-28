@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+/* ---------- GLOBAL RESET ---------- */
+* {
+  font-family: "Outfit", system-ui, sans-serif;
+}
+
+/* ---------- DARK BACKGROUND FIX (IMPORTANT) ---------- */
+html,
+body,
+#root {
+  background-color: #0b0f1a; /* Deep dark blue-black */
+  color: #e5e7eb; /* Soft white text */
+  min-height: 100%;
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- SMOOTH FADE-IN ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
