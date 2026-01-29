@@ -4,7 +4,7 @@ import {
   deleteUrl,
   getAllUrl,
   getUrl,
-} from "../controllers/shortUrl.ts";
+} from "../controllers/shortUrl";
 
 const router = express.Router();
 router.post("/shortUrl", createUrl);

@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import connectDb from "./config/db.ts";
-import shortUrl from "./routes/shortUrl.ts"
+import connectDb from "./config/db";
+import shortUrl from "./routes/shortUrl"
 
 dotenv.config();
 connectDb();
