@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./config/db";
-import shortUrl from "./routes/shortUrl"
+import shortUrl from "./routes/shortUrl";
 
 dotenv.config();
 connectDb();
@@ -15,12 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://link-forge-delta.vercel.app",
-    ],
+    origin: ["http://localhost:3000", "https://link-forge-frontend.vercel.app"],
     credentials: true,
-  })
+  }),
 );
 
 app.use("/api/", shortUrl);
