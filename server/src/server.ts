@@ -15,7 +15,19 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://link-forge-frontend.vercel.app"],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+
+      if (origin === "http://localhost:3000") {
+        return callback(null, true);
+      }
+
+      if (origin.endsWith(".vercel.app")) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("CORS not allowed"), false);
+    },
     credentials: true,
   }),
 );
