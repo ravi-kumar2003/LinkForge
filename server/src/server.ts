@@ -12,12 +12,17 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://link-forge-delta.vercel.app",
+    ],
     credentials: true,
-  }),
+  })
 );
+
 app.use("/api/", shortUrl);
 
 app.get("/", (req, res) => {
